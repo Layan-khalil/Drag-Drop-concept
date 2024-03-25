@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="drag&drop.css">
+</head>
+<body>
+    <div class="container">
+        <div id="left">
+
+            <div class="list" draggable="true">
+              FROM THE RIVER
+            </div>
+            <div class="list" draggable="true">
+              TO THE SEA
+            </div>
+            <div class="list" id="list2" draggable="true">
+                PALESTINE 
+                
+              </div>
+            <div class="list" draggable="true">
+                WILL BE FREE
+              </div>
+        </div>
+        <div id="right"></div>
+
+    </div>
+    <script>
+        lists=document.getElementsByClassName("list")
+        rightbox=document.getElementById("right");
+        leftbox=document.getElementById("left");
+
+
+        for(list of lists){
+
+        list.addEventListener("dragstart", function(e){
+        selected=e.target;
+        rightbox.addEventListener("dragover", function(e){
+            e.preventDefault();
+        });
+        rightbox.addEventListener("drop",function(e){
+            rightbox.appendChild(selected);
+            selected=null;
+        });
+        leftbox.addEventListener("dragover", function(e){
+            e.preventDefault();
+        });
+        leftbox.addEventListener("drop",function(e){
+            leftbox.appendChild(selected);
+            selected=null;
+        });
+        
+
+    })
+     }
+    </script>
+</body>
+</html>
